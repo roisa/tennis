@@ -16,7 +16,7 @@ A premium tennis-travel publication: an editorial magazine, a searchable global 
 6. [Payments and protected downloads](#payments-and-protected-downloads)
 7. [Admin CMS](#admin-cms)
 8. [Testing](#testing)
-9. [Deployment (Vercel + Supabase)](#deployment-vercel--supabase)
+9. [Deployment (Vercel + Supabase)](#deployment-vercel--supabase) · [Static preview (GitHub Pages)](#static-preview-on-github-pages)
 10. [Environment variable checklist](#environment-variable-checklist)
 11. [External dependencies still required](#external-dependencies-still-required)
 
@@ -163,6 +163,16 @@ CI runs everything on GitHub Actions against Postgres 16 (`.github/workflows/ci.
 5. **Payments:** keep `PAYMENT_PROVIDER=test` until a provider is chosen. For Stripe, set the keys, add a webhook endpoint `https://<domain>/api/webhooks/stripe` for `checkout.session.completed`, `checkout.session.async_payment_succeeded` and `checkout.session.async_payment_failed`, then set `PAYMENT_PROVIDER=stripe`. To hide checkout entirely before launch, set `ALLOW_TEST_PAYMENTS=false`.
 6. **Domain:** set `NEXT_PUBLIC_SITE_URL`. On preview deployments, set `ALLOW_INDEXING=false`.
 7. **Search Console:** set `NEXT_PUBLIC_GSC_VERIFICATION`, then submit `/sitemap.xml`. **GA4:** set `NEXT_PUBLIC_GA_ID`. Events fire for `sign_up` and `begin_checkout`. Add a consent banner before enabling GA in the EU or UK.
+
+## Static preview on GitHub Pages
+
+A static build of the public site is published to **https://roisa.github.io/tennis/**.
+
+- `npm run build:pages` produces `out/` with `output: "export"`, base path `/tennis` and trailing slashes. Override with `PAGES_BASE_PATH` and `PAGES_SITE_URL`.
+- `.github/workflows/pages.yml` rebuilds and force-pushes `out/` to the `gh-pages` branch on every push to `main` or `courtscape-v1`.
+- **Included:** every public page, the court directory (search, filters and map run in the browser), venue pages, the journal, films and guide pages.
+- **Not included** (they need a server): `/admin`, checkout, downloads, the API routes, dynamic OG images and the proxy. These files are named `*.server.tsx|ts` and are excluded via `pageExtensions`. The newsletter and contact forms show a "preview site" message (`src/lib/actions/*.static.ts` are swapped in with `turbopack.resolveAlias`), and the buy button is replaced with a note.
+- Content comes from the seed data at build time. Admin edits only appear on the full-stack deployment (Vercel + Supabase).
 
 ## Environment variable checklist
 

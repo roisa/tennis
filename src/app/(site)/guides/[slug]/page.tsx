@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import { CheckoutCancelledNotice } from "@/components/checkout-form";
 import { notFound } from "next/navigation";
 import { GuideCover, VenueCard } from "@/components/cards";
 import { CheckoutForm } from "@/components/checkout-form";
@@ -21,10 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMetadata({ title: `${data.guide.title} — Digital Tennis Travel Guide`, description: data.guide.subtitle ?? data.guide.description ?? undefined, path: `/guides/${data.guide.slug}`, image: data.guide.cover_image });
 }
 
-export default async function GuidePage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ checkout?: string }> }) {
+export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const data = await getGuideBySlug((await params).slug);
   if (!data) notFound();
-  const { checkout } = await searchParams;
   const g = publicGuide(data.guide);
   const price = formatPrice(g.price, g.currency);
   const pay = getPaymentMode();
@@ -44,14 +45,14 @@ export default async function GuidePage({ params, searchParams }: { params: Prom
                 <span className="display text-[48px] text-forest">{price}</span>
                 <span className="eyebrow text-[10px] text-forest/60">{g.format} · Instant download</span>
               </div>
-              {checkout === "cancelled" && <p className="mb-4 bg-ivory px-4 py-3 text-sm" role="status">Checkout was cancelled — you haven&rsquo;t been charged.</p>}
+              <Suspense><CheckoutCancelledNotice /></Suspense>
               {pay.mode === "test" && <p className="eyebrow mb-4 bg-lime px-3 py-2 text-center text-[10px] text-forest">Test mode — no real payments</p>}
               {g.available && pay.provider ? (
                 <CheckoutForm slug={g.slug} priceLabel={price} testMode={pay.mode === "test"} title={g.title} />
               ) : (
                 <div>
                   <p className="text-charcoal/75">{g.available ? pay.reason : "This guide is coming soon. Join the Dispatch to hear when it launches."}</p>
-                  <Link href="/#nl-title" className="btn-ghost-dark mt-5 w-full">Notify me</Link>
+                  <Link href={g.available ? "/contact?topic=Guides" : "/#nl-title"} className="btn-ghost-dark mt-5 w-full">{g.available ? "Ask about this guide" : "Notify me"}</Link>
                 </div>
               )}
             </div>

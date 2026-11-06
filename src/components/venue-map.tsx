@@ -37,7 +37,7 @@ export default function VenueMap({ points, className = "h-[480px]", zoom }: { po
         const m = L.marker([p.lat, p.lng], { icon, title: p.name, alt: p.name, keyboard: true }).addTo(map!);
         const el = document.createElement("div");
         const a = document.createElement("a");
-        a.href = `/courts/${p.slug}`;
+        a.href = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/courts/${p.slug}${process.env.NEXT_PUBLIC_STATIC_EXPORT === "1" ? "/" : ""}`;
         a.textContent = p.name;
         a.style.cssText = "font-weight:600;color:#152D28";
         el.appendChild(a);

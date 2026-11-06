@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "rm -rf out && STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=${PAGES_BASE_PATH:-/tennis} NEXT_PUBLIC_SITE_URL=${PAGES_SITE_URL:-https://roisa.github.io/tennis} LOCAL_DATA_FILE=.data/pages-build.json next build && touch out/.nojekyll",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

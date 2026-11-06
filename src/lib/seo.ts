@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { SITE, absoluteUrl } from "./site";
+import { IS_STATIC } from "./static-mode";
 
 type MetaInput = { title?: string; description?: string; path: string; image?: string | null; type?: "website" | "article"; noindex?: boolean; publishedTime?: string | null };
 
 export function pageMetadata({ title, description = SITE.description, path, image, type = "website", noindex, publishedTime }: MetaInput): Metadata {
-  const ogImage = image ?? absoluteUrl(`/og?title=${encodeURIComponent(title ?? SITE.tagline)}`);
+  const ogImage = image ?? (IS_STATIC ? absoluteUrl("/og-default.png") : absoluteUrl(`/og?title=${encodeURIComponent(title ?? SITE.tagline)}`));
   return {
     title,
     description,

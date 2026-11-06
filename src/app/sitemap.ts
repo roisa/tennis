@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getSitemapData } from "@/lib/queries";
 import { absoluteUrl } from "@/lib/site";
 
+export const dynamic = "force-static";
 export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

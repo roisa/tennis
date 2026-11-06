@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@/components/analytics";
 import { JsonLd } from "@/components/json-ld";
 import { SITE, absoluteUrl } from "@/lib/site";
+import { IS_STATIC } from "@/lib/static-mode";
 
 const display = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-instrument", display: "swap" });
 const sans = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description: SITE.description,
   applicationName: SITE.name,
   alternates: { canonical: absoluteUrl("/") },
-  openGraph: { siteName: SITE.name, type: "website", locale: "en_US", url: absoluteUrl("/"), images: [{ url: absoluteUrl("/og"), width: 1200, height: 630 }] },
+  openGraph: { siteName: SITE.name, type: "website", locale: "en_US", url: absoluteUrl("/"), images: [{ url: absoluteUrl(IS_STATIC ? "/og-default.png" : "/og"), width: 1200, height: 630 }] },
   twitter: { card: "summary_large_image" },
   verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION } : undefined,
 };

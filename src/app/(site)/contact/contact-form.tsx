@@ -1,12 +1,16 @@
 "use client";
 
 import { useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 import { sendInquiry, type FormState } from "@/lib/actions/public";
 import { keepValuesOnSubmit } from "@/lib/use-keep-values";
 
 const TOPICS = ["General", "Partnerships", "Venue update", "Press", "Guides"];
 
-export function ContactForm({ topic, venue }: { topic?: string; venue?: string }) {
+export function ContactForm() {
+  const params = useSearchParams();
+  const topic = params.get("topic") ?? undefined;
+  const venue = params.get("venue")?.slice(0, 200) ?? undefined;
   const [state, action, pending] = useActionState<FormState, FormData>(sendInquiry, { ok: false, message: "" });
   if (state.ok) return <p role="status" className="display text-[36px] text-forest">{state.message}</p>;
   const err = (k: string) => state.errors?.[k];

@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 import { beginCheckout } from "@/lib/actions/checkout";
 import { track } from "@/lib/analytics";
 import { keepValuesOnSubmit } from "@/lib/use-keep-values";
@@ -16,11 +18,16 @@ export function CheckoutForm({ slug, priceLabel, testMode, title }: { slug: stri
       </div>
       <label className="flex items-start gap-3 text-[13px] text-charcoal/75">
         <input type="checkbox" name="terms" required className="mt-1 h-4 w-4 accent-[#152D28]" />
-        <span>I agree to the <a href="/terms" className="underline">terms</a> and understand this is a digital product delivered by download link.</span>
+        <span>I agree to the <Link href="/terms" className="underline">terms</Link> and understand this is a digital product delivered by download link.</span>
       </label>
       <p id="co-err" role="alert" className="min-h-5 text-sm text-red-800">{state.error}</p>
       <button type="submit" disabled={pending} className="btn-forest w-full">{pending ? "Starting checkout…" : `Buy now — ${priceLabel}`}</button>
       {testMode && <p className="text-center text-xs text-charcoal/60"><strong>Test mode:</strong> no payment is taken. You&rsquo;ll receive a sample file, not the full guide.</p>}
     </form>
   );
+}
+
+export function CheckoutCancelledNotice() {
+  if (useSearchParams().get("checkout") !== "cancelled") return null;
+  return <p className="mb-4 bg-ivory px-4 py-3 text-sm" role="status">Checkout was cancelled — you haven&rsquo;t been charged.</p>;
 }

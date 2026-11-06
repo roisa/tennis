@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/site";
+import { IS_STATIC, STATIC_NOTICE } from "@/lib/static-mode";
 import { Wordmark } from "./logo";
 import { NewsletterForm } from "./newsletter-form";
 
@@ -47,7 +48,7 @@ export function SiteFooter() {
       </div>
       <div className="container-x flex flex-col gap-3 py-8 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
         <p>© {year} COURTSCAPE. {SITE.positioning}</p>
-        <p>Listings are labelled by how they were verified. Always confirm details with venues before travelling.</p>
+        <p>{IS_STATIC ? STATIC_NOTICE : "Listings are labelled by how they were verified. Always confirm details with venues before travelling."}</p>
       </div>
     </footer>
   );

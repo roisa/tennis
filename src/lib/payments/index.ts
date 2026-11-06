@@ -11,6 +11,7 @@ export type PaymentMode = { provider: PaymentProvider | null; mode: "test" | "li
  * Regional providers (e.g. Xendit, Midtrans for IDR/QRIS) can be added by implementing PaymentProvider.
  */
 export function getPaymentMode(): PaymentMode {
+  if (process.env.NEXT_PUBLIC_STATIC_EXPORT === "1") return { provider: null, mode: "disabled", reason: "Checkout opens on the full COURTSCAPE site. This is a static preview." };
   const choice = (process.env.PAYMENT_PROVIDER ?? "test").toLowerCase();
   if (choice === "stripe") {
     if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_WEBHOOK_SECRET) return { provider: null, mode: "disabled", reason: "Stripe is selected but not fully configured." };

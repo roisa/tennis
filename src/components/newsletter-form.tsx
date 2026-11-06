@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
 import { subscribe, type FormState } from "@/lib/actions/public";
 import { track } from "@/lib/analytics";
@@ -39,7 +40,7 @@ export function NewsletterForm({ source = "footer", tone = "dark" }: { source?: 
         </button>
       </div>
       <p id={`nl-${source}-msg`} aria-live="polite" className={`mt-3 min-h-5 text-sm ${dark ? "text-lime" : "text-red-800"}`}>{state.message}</p>
-      <p className={`text-xs ${dark ? "text-ivory/50" : "text-stone"}`}>Occasional dispatches on new destinations and courts. Unsubscribe anytime. See our <a className="underline" href="/privacy">privacy policy</a>.</p>
+      <p className={`text-xs ${dark ? "text-ivory/50" : "text-stone"}`}>Occasional dispatches on new destinations and courts. Unsubscribe anytime. See our <Link className="underline" href="/privacy">privacy policy</Link>.</p>
     </form>
   );
 }

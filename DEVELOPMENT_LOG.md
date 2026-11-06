@@ -41,3 +41,13 @@
 - Live Stripe API calls. Only the signature and settlement logic were unit-tested.
 - Supabase Auth sign-in and Storage signed URLs. The code paths exist but were not exercised.
 - Map tiles rendering. Tiles are blocked in the build container; markers are tested.
+
+## 2026-11-06 — GitHub Pages static preview
+- Added a `STATIC_EXPORT=1` build target: `output: "export"`, base path `/tennis`, trailing slashes, unoptimised images.
+- Server-only routes were renamed to `*.server.tsx|ts` and are excluded in static mode via `pageExtensions`.
+- Form actions are aliased to client stubs that store and send nothing, and payments are disabled.
+- Courts and journal filters run client-side (`useSearchParams`) in static mode. The full build keeps server-side filtering.
+- Contact and guide pages now read query params client-side in both modes.
+- `robots.ts` and `sitemap.ts` are marked `force-static` (required by export).
+- Added a static share image, `public/og-default.png`.
+- Verified: the static build was served under `/tennis/` and passed 26 browser checks (all pages, base-path navigation, filters, deep links, map pins, preview forms, disabled checkout, 404s, admin absent). The full-stack build still passes 43 unit and 29 end-to-end tests.
