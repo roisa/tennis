@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: cs
+          POSTGRES_PASSWORD: cs
+          POSTGRES_DB: courtscape
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U cs" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      E2E_DATABASE_URL: postgres://cs:cs@localhost:5432/courtscape
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - name: Seed SQL is up to date
+        run: npm run db:seed-sql && git diff --exit-code supabase/seed.sql
+      - name: Migrations apply cleanly
+        run: DATABASE_URL=$E2E_DATABASE_URL npm run db:reset-local
+      - run: npx playwright install --with-deps chromium
+      - name: End-to-end tests (Postgres)
+        run: npm run test:e2e
