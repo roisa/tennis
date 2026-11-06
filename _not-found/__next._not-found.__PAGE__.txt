@@ -1,0 +1,34 @@
+1:"$Sreact.fragment"
+2:"/tennis/_next/static/chunks/1e8blic1djf2d.js"
+3:I[39756,["$2"],"default"]
+4:I[37457,["$2"],"default"]
+5:"/tennis/_next/static/chunks/3zt_16xndew4w.js"
+6:I[22016,["$2","$5"],""]
+d:I[97367,["$2"],"OutletBoundary"]
+e:"$Sreact.suspense"
+11:"ViewportBoundary"
+12:I[97367,["$2"],"$11"]
+13:"MetadataBoundary"
+14:I[97367,["$2"],"$13"]
+:HL["/tennis/_next/static/chunks/2zlanwrky09oh.css","style"]
+8:X
+b:X
+b:C
+c:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","section",null,{"className":"container-x py-32","children":[["$","p",null,{"className":"eyebrow text-forest/60","children":"404 — Out"}],["$","h1",null,{"className":"display mt-4 text-[72px] text-forest sm:text-[120px]","children":"Long ball."}],["$","p",null,{"className":"mt-4 max-w-md text-lg text-charcoal/70","children":"We couldn’t find that page. It may have moved, or the court may not be listed yet."}],["$","div",null,{"className":"mt-10 flex flex-wrap gap-3","children":[["$","$L6",null,{"href":"/","className":"btn-forest","children":"Back to home"}],["$","$L6",null,{"href":"/courts","className":"btn-ghost-dark","children":"Search courts"}]]}]]}],[["$","script","script-0",{"src":"/tennis/_next/static/chunks/3zt_16xndew4w.js","async":true}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}],"p":"$@10","v":null,"s":"$8"}}]]
+9:[["children",{"s":"/_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}]}]]}],"p":"$@a","v":"$b","s":"$8"},"c":"$Qc"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tennis/_next/static/chunks/2zlanwrky09oh.css","precedence":"next"}],["$","script","script-0",{"src":"/tennis/_next/static/chunks/1e8blic1djf2d.js","async":true}]],["$","html",null,{"lang":"en","className":"H2jsqW_variable hEKIaG_variable","children":["$","body",null,{"children":[["$","a",null,{"href":"#main","className":"sr-only z-[100] bg-lime px-4 py-2 text-forest focus:not-sr-only focus:fixed focus:top-2 focus:left-2","children":"Skip to content"}],["$","$L3",null,{"parallelRouterKey":"children","template":["$","$L4",null,{}],"notFound":[["$","section",null,{"className":"container-x py-32","children":[["$","p",null,{"className":"eyebrow text-forest/60","children":"404 — Out"}],["$","h1",null,{"className":"display mt-4 text-[72px] text-forest sm:text-[120px]","children":"Long ball."}],["$","p",null,{"className":"mt-4 max-w-md text-lg text-charcoal/70","children":"We couldn’t find that page. It may have moved, or the court may not be listed yet."}],["$","div",null,{"className":"mt-10 flex flex-wrap gap-3","children":[["$","$L6",null,{"href":"/","className":"btn-forest","children":"Back to home"}],["$","$L6",null,{"href":"/courts","className":"btn-ghost-dark","children":"Search courts"}]]}]]}],[]]}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"COURTSCAPE\",\"url\":\"https://roisa.github.io/tennis\",\"logo\":\"https://roisa.github.io/tennis/icon.svg\",\"slogan\":\"Beyond the Court.\"}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"WebSite\",\"name\":\"COURTSCAPE\",\"url\":\"https://roisa.github.io/tennis\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":\"https://roisa.github.io/tennis/courts?q={search_term_string}\",\"query-input\":\"required name=search_term_string\"}}"}}],null]}]}]]}],"p":"$@7","v":null,"s":"$8"},"c":"$Q9"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L12",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#152D28"}]]}],["$","$L14",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$e",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"COURTSCAPE — Beyond the Court. Tennis Travel & Destinations"}],["$","meta","1",{"name":"description","content":"COURTSCAPE discovers extraordinary places around the world where tennis meets travel — beautiful courts, resorts, destinations and tennis holidays."}],["$","meta","2",{"name":"application-name","content":"COURTSCAPE"}],["$","link","3",{"rel":"canonical","href":"https://roisa.github.io/tennis/"}],["$","meta","4",{"property":"og:title","content":"COURTSCAPE — Beyond the Court. Tennis Travel & Destinations"}],["$","meta","5",{"property":"og:description","content":"COURTSCAPE discovers extraordinary places around the world where tennis meets travel — beautiful courts, resorts, destinations and tennis holidays."}],["$","meta","6",{"property":"og:url","content":"https://roisa.github.io/tennis/"}],["$","meta","7",{"property":"og:site_name","content":"COURTSCAPE"}],["$","meta","8",{"property":"og:locale","content":"en_US"}],["$","meta","9",{"property":"og:image","content":"https://roisa.github.io/tennis/og-default.png"}],["$","meta","10",{"property":"og:image:width","content":"1200"}],["$","meta","11",{"property":"og:image:height","content":"630"}],["$","meta","12",{"property":"og:type","content":"website"}],["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","14",{"name":"twitter:title","content":"COURTSCAPE — Beyond the Court. Tennis Travel & Destinations"}],["$","meta","15",{"name":"twitter:description","content":"COURTSCAPE discovers extraordinary places around the world where tennis meets travel — beautiful courts, resorts, destinations and tennis holidays."}],["$","meta","16",{"name":"twitter:image","content":"https://roisa.github.io/tennis/og-default.png"}],"$L15","$L16","$L17","$L18"]}]}],null]}],"$L19"]}],"p":"$@1a","v":null,"s":"$8"}},"a":"$@1b","u":"$@1c","b":"PKk4fqmrgzl1Ng96dCwJE"}
+1d:I[27201,["$2"],"IconMark"]
+f:null
+15:["$","meta","17",{"name":"twitter:image:width","content":"1200"}]
+16:["$","meta","18",{"name":"twitter:image:height","content":"630"}]
+17:["$","link","19",{"rel":"icon","href":"/tennis/icon.svg?icon.21chiofkcm2wn.svg","sizes":"any","type":"image/svg+xml"}]
+18:["$","$L1d","20",{}]
+19:["$","meta",null,{"name":"next-size-adjust","content":""}]
+8:300
+1c:true
+8:C
+1b:0
+a:"$undefined"
+7:"$undefined"
+1a:"$undefined"
+10:"$undefined"

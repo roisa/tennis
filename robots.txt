@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /downloads/
+Disallow: /guides/checkout/
+Disallow: /*/success
+
+Sitemap: https://roisa.github.io/tennis/sitemap.xml
